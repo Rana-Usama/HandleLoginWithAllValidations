@@ -1,0 +1,32 @@
+ const handleLogin = () => {
+        showIndicator(true);
+        let tempfeilds = [...inputField];
+
+        if (tempfeilds[0].value === "" || tempfeilds[1].value === "") {
+            alert("Please fill all the feilds");
+            showIndicator(false);
+            return true;
+        }
+
+        var mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+        if (!tempfeilds[0].value.match(mail)) {
+            alert("Wrong Email Entered!");
+            showIndicator(false);
+            return true;
+        }
+
+        var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        if (!tempfeilds[1].value.match(passw)) {
+            alert("Week password try another one!");
+            showIndicator(false);
+            return true;
+        }
+
+        try {
+            // API INTEGRATION WILL COME HERE
+        } catch (error) {
+            alert("Error");
+        }
+
+        showIndicator(false);
+    };
